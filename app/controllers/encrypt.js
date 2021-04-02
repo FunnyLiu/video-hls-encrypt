@@ -47,6 +47,7 @@ function encryptFun(options,socket, callback) {
     console.log('begin encrypt Fun');
     if (_type == 'mp4') {
         ffmpegCommand(_videoPath)
+        //将mp4转为hls，分成各个片段
             .addOption('-hls_time', '10')   //设置每个片段的长度
             .addOption('-hls_key_info_file', _keyInfoPath)
             .save(_outputPath)
